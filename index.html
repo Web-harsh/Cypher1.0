@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+</head>
+<body onload="load()">
+ <div class="container">
+     <br>
+     <br>
+     <br>
+     <h1>
+         Cypher 1.0🧃
+     </h1>
+     <br>
+     <img src="icon.png" alt="">
+     <br>
+     
+    <p id="text1"></p>
+    <p id="text2"></p>
+     <input type="tel" id="key" placeholder="Enter Cyper Key">
+     <br>
+     <br>
+    <button id="btn" onclick="login()">
+        Unlock Cypher 
+    </button>
+ </div>  
+    <style>
+.container{
+    background:black;
+    height:100vh;
+    width:100%;
+}
+body{
+    margin:0;
+    padding:0;
+}
+#key{
+    padding:3px 12px;
+    text-align:center;
+    height:45px;
+    width:200px;
+    display:none;
+    margin:0 auto;
+    background:white;
+    border:1px solid green;
+    color:black;
+    border-radius:12px;
+    border:2px solid green;
+    font-weight:bold;
+    font-family: fantasy;
+    font-size:1.2 rem;
+}
+.container img{
+    height:400px;
+    width:380px;
+    border-radius:100%;
+    display:block;
+    margin:0 auto;
+    border:3px solid white;
+}
+
+h1{
+    color:#55ff97;
+    font-family:fantasy;
+    text-align:center;
+    
+}
+
+p{
+    font-family:fantasy;
+    font-size:30px;
+    color:white;
+    text-align:center;
+} 
+
+#btn{
+    padding:20px 100px;
+    display:none;
+    margin:0 auto;
+    background:white;
+    color:black;
+    border-radius:12px;
+    border:1px solid white;
+    font-weight:bold;
+    font-size:2rem;
+    font-family: fantasy;
+}
+    </style>
+    <script>
+       const text1 = "Welcome to Cypher 1.0🧃";
+const text2 = "Let's begin our journey!";
+let i = 0;
+let j = 0;
+const speed = 100;  // typing speed in milliseconds
+
+function typeWriter1() {
+  if (i < text1.length) {
+    document.getElementById("text1").textContent += text1.charAt(i);
+    i++;
+    setTimeout(typeWriter1, speed);
+  } else {
+    // Once the first line is done, start the second line
+    setTimeout(typeWriter2, 1620);  // delay before starting the second line
+  }
+}
+
+function typeWriter2() {
+  if (j < text2.length) {
+    document.getElementById("text2").textContent += text2.charAt(j);
+    j++;
+    setTimeout(typeWriter2, speed);
+  }
+}
+
+function wait(){
+    setTimeout(typeWriter1,1500)
+}
+wait();
+        function display(){
+    document.getElementById("btn").style.display = "block"
+            document.getElementById("key").style.display = "block"
+}
+function load(){
+  setTimeout(display, 9120)  
+}
+    let key = 0852580;
+    let data = document.getElementById("key");
+    function login(){
+        data = data.value;
+        if(data == key){
+            window.location.href= 'homepage.html';
+            
+        }else{
+   alert("Incorrect 'Cypher Key'... \n Refresh the page and try again!!!")
+        }
+    }
+    </script>
+</body>
+</html>

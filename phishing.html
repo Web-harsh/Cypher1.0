@@ -1,0 +1,282 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./matrix.css">
+    <title>Matrix digital rain</title>
+</head>
+<body>
+    <div class="header">
+      <h2 id="txt">Social media hacks</h2> 
+    </div>
+    
+     
+     <div class="container">
+        
+        <div class="div-1">
+            <br>
+            <img src="fb.png" height="150">
+            <br>
+            <br>
+            <a id="txt">
+                Facebook hack 
+            </a>
+            <br>
+            <br>
+            <button id="btn" onclick="say()">
+                Download Tool
+            </button>
+        </div> &nbsp &nbsp
+        <div class="div-2">
+           <br>
+            <img src="insta.png">
+            <br>
+            <br>
+            <a id="txt">
+               Instagram Hack
+            </a>
+            <br>
+            <br>
+            <button id="btn" onclick="say()">
+                Download Tool
+            </button> 
+        </div> 
+       
+         <!--
+         Second section
+         -->n
+    </div>
+    
+    <div class="container2">
+        <div class="div-1">
+            <br>
+            <img src="tik.png" height="150">
+            <br>
+            <br>
+            <a id="txt">
+                Tik Tok hack
+            </a>
+            <br>
+            <br>
+            <button id="btn" onclick="say()">
+                Download Tool
+            </button>
+        </div> &nbsp &nbsp
+        <div class="div-2">
+           <br>
+            <img src="icon.png">
+            <br>
+            <br>
+            <a id="txt">
+                More Tools
+            </a>
+            <br>
+            <br>
+            <button id="btn" onclick="say2()">
+                Visit
+            </button> 
+        </div> 
+       
+         <!--
+         Second section
+         -->n
+    </div>
+   
+    <div class="container3">
+        
+    </div>
+    <canvas id="Matrix"></canvas>
+
+    <style>
+    html {
+    background:black;
+    height: 100%;
+    overflow: ;
+}
+    h2{
+        font-size:1rem;
+        
+    }
+    #btn{
+display:block;
+margin:0 auto;
+width:140px;
+height:40px;  
+background:blue;
+color:white;
+font-weight:bold;
+outline:none;
+border:none;
+padding:5px 12px;
+border-radius:5px;
+margin-left:5%;
+
+    }
+#txt{
+  font-weight:bold;
+    text-align:center;
+font-family:fantasy;    
+}
+Canvas{
+    position:;
+    width:100%;
+    height:100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+button{
+    padding:10px;
+    position:fixed;
+}
+.header{
+    background:white;
+    height:20px;
+    width:300px;
+    border-bottom-right-radius:12px;
+    border-bottom-left-radius:12px;
+    position:;
+    margin-left:;
+    color:black;
+    display:flex;
+    width:;
+    display:block;
+    margin:0 auto;
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    padding-bottom:8%;
+  
+}
+h2{
+    font-family: fantasy;
+    text-align:center;
+}
+.container{
+    background:;
+    position:fixed;
+    margin-top:30%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-left:6%;    
+}
+    .container2{
+    background:;
+    position:fixed;
+    margin-top:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-left:6%;    
+}
+    
+     .container3{
+    background:green;
+    position:fixed;
+    margin-top:90%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-left:6%;    
+}
+    
+    
+.div-1{
+    background:white;
+    height:250px;
+    text-align:center;
+    width:190px;
+    padding-bottom:7%
+}
+    .div-1 img{
+      width:150px;  
+      margin-left:%;
+        box-shadow:1px 1px 12px black; 
+        border-radius:4px;
+    }
+.div-2{
+     background:white;
+    height:250px;
+    text-align:center;
+    width:190px;
+    padding-bottom:7%
+}
+     .div-2 img{
+      width:150px;  
+      margin-left:%;
+        box-shadow:1px 1px 12px black; 
+        border-radius:4px;
+    }
+    </style>
+    <script>
+const canvas = document.getElementById('Matrix');
+const context = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const nums = '0123456789';
+
+const alphabet = katakana + latin + nums;
+
+const fontSize = 9;
+const columns = canvas.width/fontSize;
+
+const rainDrops = [];
+
+for( let x = 0; x < columns; x++ ) {
+	rainDrops[x] = 1;
+}
+
+const draw = () => {
+	context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	
+	context.fillStyle = '#0F0';
+	context.font = fontSize + 'px monospace';
+
+	for(let i = 0; i < rainDrops.length; i++)
+	{
+		const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+		context.fillText(text, i*fontSize, rainDrops[i]*fontSize);
+		
+		if(rainDrops[i]*fontSize > canvas.height && Math.random() > 0.975){
+			rainDrops[i] = 0;
+        }
+		rainDrops[i]++;
+	}
+};
+
+
+setInterval(draw, 40);
+   /*
+document.getElementById("txt").innerHTML = "Loading page data..."
+document.querySelector(".container").style.display = 'none'
+document.querySelector(".container2").style.display = 'none'
+  
+function show(){
+  document.getElementById("txt").innerHTML = "Loading page data..."
+document.querySelector(".container").style.display = 'none'
+document.querySelector(".container2").style.display = 'none'
+}
+  
+setTimeout(show(), 2000)
+    
+    */
+    function say(){
+        alert("This tool is currently unavailable \n message (+2348141104435) via whatsapp\n for any complains");
+    }
+    function say2(){
+        alert("More tools coming up febuary 1st 2025\n message (+2348141104435) via whatsapp\n for any complains");
+    }
+    
+    </script>
+</body>
+</html>
